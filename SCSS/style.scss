@@ -1,0 +1,101 @@
+@import "_variables.scss";
+
+body {
+    font: 100% "Space Mono", monospace;
+    color: #6b717f;
+    margin: 0;
+    padding: $padding-general;
+    background-color: $body-background-color;
+    overflow-x: hidden;
+}
+@mixin box-shadow ($shadow-color){
+    -webkit-box-shadow: $box-shadowing $shadow-color;
+    -moz-box-shadow: $box-shadowing $shadow-color;
+    box-shadow: $box-shadowing $shadow-color;
+}
+main {
+    padding: 0 $padding-general;
+    .messages {
+        padding: $padding-general;
+        .success {
+            @extend .messages;
+            background-color: $backgroud-color-green;
+            border: 1px solid $border-color;
+            color: $color;
+        }
+        .error {
+            background-color: red;
+            @extend .success;
+            &:hover{
+                background-color: $backgroud-color-green;
+                @extend .success;
+            }
+        }
+        .warning {
+            background-color: orange;
+            @extend .success;
+        }
+    }
+}
+
+article {
+    display: flex;
+    flex-wrap: wrap;
+    section {
+        flex-grow: 1;
+        flex-basis: 45%;
+        border: 1px $border-color solid;
+        padding: $padding-general;
+        margin: 16px;
+        @include box-shadow($shadow-color);
+        clear: both;
+        overflow: auto;
+        box-sizing: border-box;
+        code {
+            background: #000;
+            border: 1px solid #6b717f;
+            color: #8C8C8C;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 1.6em;
+            max-width: 100%;
+            overflow: auto;
+            padding: $padding-general;
+            display: block;
+            word-wrap: break-word;
+        }
+        .before {
+            float: left;
+            width: 40%;
+        }
+        .after {
+            float: right;
+            width: 40%;
+        } 
+    }
+    #selling-points {
+        flex-grow: 2;
+        flex-basis: 100%;
+            h2{
+                color: $heading-color;
+            }
+    }
+}
+header{
+    h1 {
+        text-align: center;
+        color: $heading-color;
+    }
+}
+footer{
+    h3 {
+        text-align: center;
+        font-size: 1.5em;
+        padding: 2*$padding-general;
+        margin-bottom: 0px;
+        color: $heading-color;
+    }
+    
+}

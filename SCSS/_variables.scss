@@ -1,0 +1,15 @@
+$heading-color: #BF4080;
+$color : #fff;
+$body-background-color: #fff;
+$shadow-color: #6b717f;
+$border-color: #8C8C8C;
+$backgroud-color-green: green;
+$padding-general: 16px;
+$box-shadowing: 10px 10px 15px -4px ;
+
+@for $i from 1 through 6 {
+    li:nth-child(1n + #{$i}) {
+    background-color: lighten(#BF4080, $i * 5%);
+    color: lighten(#000000, $i * 5%);
+    }
+}
